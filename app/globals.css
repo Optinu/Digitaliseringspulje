@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 150 20% 98%;
+    --foreground: 222 25% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 25% 8%;
+    --primary: 173 78% 18%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 156 28% 94%;
+    --secondary-foreground: 222 25% 10%;
+    --muted: 156 18% 95%;
+    --muted-foreground: 215 14% 42%;
+    --accent: 165 55% 36%;
+    --accent-foreground: 0 0% 98%;
+    --border: 156 18% 88%;
+    --input: 156 18% 88%;
+    --ring: 173 78% 18%;
+    --radius: 1.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Hide scrollbar for carousel */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Logo carousel animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(var(--scroll-distance, -100%));
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left var(--scroll-duration, 20s) linear infinite;
+}
