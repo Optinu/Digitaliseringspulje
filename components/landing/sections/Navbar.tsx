@@ -57,7 +57,11 @@ export function Navbar() {
             className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
             aria-label="Optinu.dk (til toppen)"
           >
-            <SiteLogo priority />
+            <SiteLogo
+              priority
+              heightClassName="h-[3.75rem] sm:h-[4.75rem]"
+              imageClassName="max-w-none"
+            />
             <span className="sr-only">{landingContent.site.name}</span>
           </a>
 

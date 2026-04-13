@@ -48,11 +48,6 @@ export function FinalCTASection() {
               Fokus på næste bedste skridt
             </div>
           </div>
-
-          <p className="mt-6 text-xs text-foreground/55">
-            {/* TODO: indsæt bookinglink / Calendly og evt. indlejret widget */}
-            TODO: Tilslut bookinglink (Calendly) og tracking.
-          </p>
         </motion.div>
       </Container>
     </section>

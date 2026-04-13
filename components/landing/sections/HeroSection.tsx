@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Play, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
+import Image from "next/image";
 import { landingContent } from "@/lib/landing-content";
 import { Container } from "@/components/landing/shared/Container";
 import { PrimaryCTA, SecondaryCTA } from "@/components/landing/shared/CTAs";
@@ -15,10 +16,7 @@ const fadeUp = {
 
 export function HeroSection() {
   return (
-    <section
-      id="top"
-      className="relative min-h-[100svh] flex items-center"
-    >
+    <section id="top" className="relative min-h-[100svh]">
       <div className="pointer-events-none fixed inset-0 -z-10">
         {/* Base aurora glow */}
         <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_20%_20%,rgba(16,185,129,0.30),transparent_58%),radial-gradient(110%_70%_at_85%_15%,rgba(20,184,166,0.24),transparent_60%),radial-gradient(100%_70%_at_55%_90%,rgba(34,197,94,0.22),transparent_62%)]" />
@@ -81,9 +79,10 @@ export function HeroSection() {
         />
       </div>
 
-      <Container className="relative w-full pt-20 sm:pt-24 pb-6 sm:pb-8">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          <div className="max-w-xl lg:col-span-6 lg:pr-6">
+      <div className="relative z-10 flex min-h-[100svh] flex-col justify-center pt-20 sm:pt-24 pb-12 sm:pb-16">
+        <Container className="relative w-full">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            <div className="max-w-xl lg:col-span-6 lg:pr-6">
             <motion.div {...fadeUp}>
               <div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-white/70 px-3 py-1.5 text-xs font-medium text-foreground/80 shadow-sm">
                 <ShieldCheck className="h-4 w-4 text-primary" />
@@ -134,49 +133,32 @@ export function HeroSection() {
             >
               <HeroLogoCarousel className="mt-10" />
             </motion.div>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-            className="relative lg:col-span-6"
-          >
-            <div className="absolute -inset-5 -z-10 rounded-[44px] bg-white/35 blur-sm" />
-
-            <div className="relative rounded-[36px] border border-border/60 bg-white/55 p-3 sm:p-4 shadow-[0_24px_64px_-48px_rgba(2,44,34,0.6)]">
-              <div className="relative overflow-hidden rounded-[28px] bg-[#0b1f1a] aspect-[4/5] sm:aspect-[16/10]">
-                {/* TODO: indsæt rigtig video (mp4/webm) + poster */}
-                <video
-                  className="absolute inset-0 h-full w-full object-cover opacity-95"
-                  playsInline
-                  muted
-                  loop
-                  autoPlay
-                  preload="metadata"
-                >
-                  {/* <source src="/video/optinu-hero.webm" type="video/webm" /> */}
-                  {/* <source src="/video/optinu-hero.mp4" type="video/mp4" /> */}
-                </video>
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
-
-                <button
-                  type="button"
-                  className="absolute left-5 bottom-5 inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-3 text-white/90 backdrop-blur-sm hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
-                  aria-label="Afspil video (TODO)"
-                  // TODO: åbn modal / lightbox video hvis ønsket
-                >
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15">
-                    <Play className="h-5 w-5" />
-                  </span>
-                  <span className="text-sm font-medium">Se kort eksempel</span>
-                </button>
-              </div>
             </div>
-          </motion.div>
-        </div>
-      </Container>
+
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+              className="relative lg:col-span-6"
+            >
+              <div className="absolute -inset-5 -z-10 rounded-[44px] bg-white/35 blur-sm" />
+
+              <div className="relative rounded-[36px] border border-border/60 bg-white/55 p-3 sm:p-4 shadow-[0_24px_64px_-48px_rgba(2,44,34,0.6)]">
+                <div className="relative min-h-[280px] overflow-hidden rounded-[28px] bg-[#0b1f1a] aspect-[4/5] sm:aspect-[16/10] sm:min-h-[320px] lg:aspect-[4/5]">
+                  <Image
+                    src="/hero-meeting.png"
+                    alt="Møde med rådgiver og team"
+                    fill
+                    priority
+                    className="object-cover opacity-95 blur-[1.65px] scale-[1.02]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent" />
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </Container>
+      </div>
     </section>
   );
 }

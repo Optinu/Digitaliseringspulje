@@ -33,10 +33,6 @@ export function FAQSection() {
                 Vi forsøger at gøre det nemt at forstå, hvad afklaringen indebærer
                 – og hvad tilskuddet ikke dækker.
               </p>
-              <p className="mt-6 text-xs text-muted-foreground">
-                {/* TODO: tilføj cases/testimonials hvis ønsket */}
-                TODO: Tilføj evt. cases/testimonials her.
-              </p>
             </LandingCard>
           </div>
 

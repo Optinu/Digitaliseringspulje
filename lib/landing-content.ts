@@ -7,8 +7,8 @@ export const landingContent = {
   },
   nav: {
     links: [
-      { href: "#relevans", label: "Målgruppe" },
       { href: "#puljeberegner", label: "Puljeberegner" },
+      { href: "#relevans", label: "Målgruppe" },
       { href: "#faq", label: "FAQ" },
       { href: "#book", label: "Kontakt" },
     ],

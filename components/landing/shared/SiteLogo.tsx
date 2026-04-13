@@ -3,10 +3,12 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-export const SITE_LOGO_SRC = "/logo-optinu.png";
+export const SITE_LOGO_SRC = "/logo-optinu.svg";
 
 type SiteLogoProps = {
   className?: string;
+  /** Applied to the inner <Image> (e.g. max-width overrides) */
+  imageClassName?: string;
   /** Tailwind height classes; width follows aspect ratio */
   heightClassName?: string;
   priority?: boolean;
@@ -14,6 +16,7 @@ type SiteLogoProps = {
 
 export function SiteLogo({
   className,
+  imageClassName,
   heightClassName = "h-8 sm:h-9",
   priority,
 }: SiteLogoProps) {
@@ -24,10 +27,14 @@ export function SiteLogo({
       <Image
         src={SITE_LOGO_SRC}
         alt="Optinu.dk"
-        width={640}
-        height={160}
+        width={2560}
+        height={1400}
         priority={priority}
-        className="h-full w-auto max-w-[min(240px,72vw)] object-contain object-left"
+        unoptimized
+        className={cn(
+          "h-full w-auto max-w-[min(240px,72vw)] object-contain object-left",
+          imageClassName
+        )}
       />
     </span>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, RotateCcw } from "lucide-react";
 import { landingContent } from "@/lib/landing-content";
@@ -259,10 +260,16 @@ export function GrantCalculatorSection() {
   return (
     <section
       id="puljeberegner"
-      className="relative overflow-hidden bg-cover bg-center bg-fixed py-14 sm:py-20 border-y border-border/60"
-      style={{ backgroundImage: "url('/hero-background-person.png')" }}
+      className="relative overflow-hidden py-14 sm:py-20 border-y border-border/60"
     >
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+        <Image
+          src="/hero-meeting.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
         <div className="absolute inset-0 bg-slate-950/52 backdrop-blur-[7px]" />
         <div className="absolute inset-0 bg-gradient-to-b from-white/66 via-white/58 to-white/70" />
       </div>
